@@ -1,16 +1,23 @@
 variable "DEVCONTAINER_OUTPUTS" {
   default = ""
 }
-variable "DEVCONTAINER_CACHE_FROMS" {
-  default = ""
-}
-variable "DEVCONTAINER_CACHE_TOS" {
-  default = ""
+
+group "default" {
+  targets = [
+    "pre-commit",
+    "useradd"
+  ]
 }
 
-target "default" {
-  dockerfile = ".devcontainer/Dockerfile"
-  output = split(" ", "${DEVCONTAINER_OUTPUTS}")
-  cache-from = split(" ", "${DEVCONTAINER_CACHE_FROMS}")
-  cache-to = split(" ", "${DEVCONTAINER_CACHE_TOS}")
+target "pre-commit" {
+  contexts = {
+    base_context = "python:3.12.4"
+  }
+}
+
+target "useradd" {
+  contexts = {
+    base_context = "target:pre-commit"
+  }
+  output = split(" ", trimspace("${DEVCONTAINER_OUTPUTS}"))
 }
