@@ -8,7 +8,7 @@ dotfiles_old="$HOME/.dotfiles_old_$(date +%Y-%m-%d-%H-%M-%S)"  # old dotfiles ba
 files=()                          # list of files/folders to symlink in homedir
 while IFS=  read -r -d $'\0'; do
   files+=("$REPLY")
-done < <(find $dotfiles -maxdepth 1 -print0)
+done < <(find $dotfiles/ -name "*" -name ".*" -maxdepth 1 -print0)
 
 echo "Files ${files}"
 
