@@ -13,7 +13,7 @@ jobs:
   release-it-workflow:
     uses: rcwbr/release-it-gh-workflow/.github/workflows/release-it-workflow.yaml@0.2.4
     with:
-      app-id: 1050683 # dotfiles release-it app
+      app-id: 1147302 # dotfiles release-it app
       app-environment: Repo release
       # Use the file bumper release-it image
       release-it-image: ghcr.io/rcwbr/release-it-docker-file-bumper:0.7.0
