@@ -43,6 +43,17 @@ repos:
   - id: sort-simple-yaml
     files: .pre-commit-config.yaml
   - id: trailing-whitespace
+- repo: local
+  hooks:
+  - id: commitlint-ci
+    name: commitlint-ci
+    stages: [manual]
+    always_run: true
+    language: node
+    additional_dependencies: ['@commitlint/config-conventional']
+    entry: bash
+    args: ["-c", "npx commitlint --from $PRE_COMMIT_FROM_COMMIT --to $PRE_COMMIT_TO_COMMIT"]
+    pass_filenames: false
 - repo: https://github.com/shellcheck-py/shellcheck-py
   rev: v0.10.0.1
   hooks:
