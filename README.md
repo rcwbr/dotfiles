@@ -8,6 +8,7 @@
   - [Usage](#usage)
     - [Local](#local)
     - [GitHub Codespaces](#github-codespaces)
+    - [VSCode devcontainers](#vscode-devcontainers)
   - [Contributing](#contributing)
     - [devcontainer](#devcontainer)
       - [devcontainer basic usage](#devcontainer-basic-usage)
@@ -67,6 +68,26 @@ Codespaces will start with a clone of the default branch of this repo, and
 [will execute the `install` script](https://docs.github.com/en/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)
 to load files into the environment. The `DOTFILES_VERSION` variable is not applicable in this
 context.
+
+### VSCode devcontainers<a name="vscode-devcontainers"></a>
+
+VSCode editors on the host system will leverage this repo if configured per the
+[Local usage](#local). To configure this repo as dotfiles for VSCode _devcontainers_, follow these
+steps:
+
+1. Open Preferences: Open User Settings
+1. Search for "dotfiles"
+1. In the `Dotfiles: Repository` field, paste this repo's URL:
+   `https://github.com/rcwbr/dotfiles.git`
+1. (Optional) Set the `Dotfiles: Target Path` field to `~/.dotfiles` for consistency with
+   [Local usage](#local)
+1. Restart any running devcontainers for this change to take effect
+
+> :warning: Note that if a devcontainer mounts its user's home directory (as a bind or a volume),
+> VSCode will not be able to automatically clone the repo fresh on each restart, and
+> [the `dotfiles_update` tool must be used](#dotfiles-updater-usage).
+
+> :warning: The `DOTFILES_VERSION` variable is not applicable in this context.
 
 ## Contributing<a name="contributing"></a>
 
