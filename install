@@ -31,3 +31,22 @@ for file in "${files[@]}"; do
   echo "Creating symlink to $file in home directory."
   ln -s "$dir/$file" "$HOME/$file"
 done
+
+# Prep the dotfiles updater tool
+mkdir -p "$HOME/.local/bin"
+DOTFILES_UPDATER="$HOME/.local/bin/dotfiles_update"
+cat << EOF > "$DOTFILES_UPDATER"
+#!/bin/bash
+set -e
+
+pushd "$(dirname "$(pwd)")" || exit
+git remote set-branches origin '*'
+git fetch
+if [[ -n "\$DOTFILES_VERSION" ]]; then
+  git checkout "\$DOTFILES_VERSION"
+fi
+git pull
+./install
+popd || exit
+EOF
+chmod +x "$DOTFILES_UPDATER"
