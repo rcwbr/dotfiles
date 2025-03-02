@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e
+
+# Inspired by https://github.com/michaeljsmalley/dotfiles/blob/master/makesymlinks.sh
+dir="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )/dotfiles" &> /dev/null && pwd )" # dotfiles directory
+olddir="$HOME/.dotfiles_old_$(date +%Y-%m-%d-%H-%M-%S)"                             # old dotfiles backup directory
+
+# create dotfiles_old in homedir
+echo -n "Creating $olddir for backup of any existing dotfiles in $HOME ..."
+mkdir -p "$olddir"
+echo "done"
+
+# change to the dotfiles directory
+echo "Changing to the $dir directory ..."
+pushd "$dir"
+echo "done"
+
+files=()                        # list of files/folders to symlink in homedir
+while IFS=  read -r -d $'\0'; do
+  files+=("$REPLY")
+done < <(find . -type f -print0)
+
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
+echo "Moving any existing dotfiles from $HOME to $olddir"
+for file in "${files[@]}"; do
+  if [[ -L "$HOME/$file" ]] || [[ -f "$HOME/$file" ]]; then
+    echo "Moving file $HOME/$file to $olddir"
+    mv "$HOME/$file" "$olddir/"
+  fi
+  echo "Creating symlink to $file in home directory."
+  ln -s "$dir/$file" "$HOME/$file"
+done
