@@ -9,6 +9,7 @@
     - [Local](#local)
     - [GitHub Codespaces](#github-codespaces)
     - [VSCode devcontainers](#vscode-devcontainers)
+    - [Dotfiles updater usage](#dotfiles-updater-usage)
   - [Contributing](#contributing)
     - [devcontainer](#devcontainer)
       - [devcontainer basic usage](#devcontainer-basic-usage)
@@ -88,6 +89,30 @@ steps:
 > [the `dotfiles_update` tool must be used](#dotfiles-updater-usage).
 
 > :warning: The `DOTFILES_VERSION` variable is not applicable in this context.
+
+### Dotfiles updater usage<a name="dotfiles-updater-usage"></a>
+
+Most environments for dotfiles are short-lived and manual updating is not necessary. However,
+dotfile applications to local host systems, dotfiles may become out of date and require updating. To
+assist with this, the `install` script prepares a `dotfiles_update` executable to pull repo updates
+and apply.
+
+> :warning: The `dotfiles_update` tool is prepared in the `~/.local/bin` directory. If this is not
+> added to the `PATH` variable by system configuration or dotfiles, it will not be found as a
+> command. However, it may always be invoked as `~/.local/bin/dotfiles_update`
+
+```bash
+# Update dotfiles to the latest of the version ref initially applied:
+dotfiles_update
+```
+
+The `dotfiles_update` tool can be instructed to retrieve a specific version of the dotfiles repo,
+using the `DOTFILES_VERSION` variable. For example, to pin to a release tag:
+
+```bash
+export DOTFILES_VERSION=0.1.0
+dotfiles_update
+```
 
 ## Contributing<a name="contributing"></a>
 
