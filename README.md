@@ -36,7 +36,7 @@ Unlike other use-cases, application to local environments requires explicitly cl
 This is facilitated by the `local-install` script, which may be triggered via curl:
 
 ```bash
-curl https://raw.githubusercontent.com/rcwbr/dotfiles/refs/tags/0.1.0/local-install | bash
+curl https://raw.githubusercontent.com/rcwbr/dotfiles/refs/tags/0.2.0/local-install | bash
 ```
 
 To apply a version of this repo other than the default branch, `local-install` may be invoked with
@@ -44,8 +44,8 @@ the `DOTFILES_VERSION` variable set to a git reference. For example, to apply do
 release tag:
 
 ```bash
-export DOTFILES_VERSION=0.1.0
-curl https://raw.githubusercontent.com/rcwbr/dotfiles/refs/tags/0.1.0/local-install | bash
+export DOTFILES_VERSION=0.2.0
+curl https://raw.githubusercontent.com/rcwbr/dotfiles/refs/tags/0.2.0/local-install | bash
 ```
 
 To update the version of the dotfiles applied to a local environment,
@@ -111,7 +111,7 @@ The `dotfiles_update` tool can be instructed to retrieve a specific version of t
 using the `DOTFILES_VERSION` variable. For example, to pin to a release tag:
 
 ```bash
-export DOTFILES_VERSION=0.1.0
+export DOTFILES_VERSION=0.2.0
 dotfiles_update
 ```
 
