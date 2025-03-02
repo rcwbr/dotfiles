@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+DOTFILES_PATH="$HOME/.dotfiles"
+git clone https://github.com/rcwbr/dotfiles.git "$DOTFILES_PATH"
+pushd "$DOTFILES_PATH" || exit
+if [[ -n "$DOTFILES_VERSION" ]]; then
+  git checkout "$DOTFILES_VERSION"
+fi
+./install
+popd || exit

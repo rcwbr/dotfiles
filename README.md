@@ -5,6 +5,12 @@
 <!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=1 -->
 
 - [rcwbr dotfiles](#rcwbr-dotfiles)
+  - [Usage](#usage)
+    - [Local](#local)
+    - [GitHub Codespaces](#github-codespaces)
+    - [VSCode devcontainers](#vscode-devcontainers)
+    - [Dotfiles updater usage](#dotfiles-updater-usage)
+    - [Modifying dotfiles](#modifying-dotfiles)
   - [Contributing](#contributing)
     - [devcontainer](#devcontainer)
       - [devcontainer basic usage](#devcontainer-basic-usage)
@@ -14,6 +20,116 @@
     - [Settings](#settings)
 
 <!-- mdformat-toc end -->
+
+## Usage<a name="usage"></a>
+
+While dotfiles are inherently for personalization, much of this repo is built to be reusable. The
+`dotfiles` subdirectory isolates the actual personalization/configuration files, while the lifecycle
+and installation tooling outside this repo is fully reusable (e.g. by forking or copying this repo).
+
+> :warning: The `local-install` script includes the reference to this repo as a hardcoded value;
+> this must be altered if forked/copied.
+
+### Local<a name="local"></a>
+
+Unlike other use-cases, application to local environments requires explicitly cloning this repo.
+This is facilitated by the `local-install` script, which may be triggered via curl:
+
+```bash
+curl https://raw.githubusercontent.com/rcwbr/dotfiles/refs/tags/0.1.0/local-install | bash
+```
+
+To apply a version of this repo other than the default branch, `local-install` may be invoked with
+the `DOTFILES_VERSION` variable set to a git reference. For example, to apply dotfiles from a
+release tag:
+
+```bash
+export DOTFILES_VERSION=0.1.0
+curl https://raw.githubusercontent.com/rcwbr/dotfiles/refs/tags/0.1.0/local-install | bash
+```
+
+To update the version of the dotfiles applied to a local environment,
+[use the dotfiles updater](#dotfiles-updater-usage).
+
+The `local-install` tool clones this repo to `~/.dotfiles`. To clone and configure from another
+location, simply `git clone` this repo and run the `./install` script manually from that location.
+
+### GitHub Codespaces<a name="github-codespaces"></a>
+
+Follow
+[these instructions](https://docs.github.com/en/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#enabling-your-dotfiles-repository-for-codespaces)
+to configure Codespaces to use this repo.
+
+> 1. In the upper-right corner of any page on GitHub, click your profile photo, then click Settings.
+> 1. In the "Code, planning, and automation" section of the sidebar, click Codespaces.
+> 1. Under "Dotfiles", select Automatically install dotfiles so that GitHub Codespaces automatically
+>    installs your dotfiles into every new codespace you create.
+> 1. Use the dropdown to choose the repository you want to install dotfiles from.
+
+Codespaces will start with a clone of the default branch of this repo, and
+[will execute the `install` script](https://docs.github.com/en/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)
+to load files into the environment. The `DOTFILES_VERSION` variable is not applicable in this
+context.
+
+### VSCode devcontainers<a name="vscode-devcontainers"></a>
+
+VSCode editors on the host system will leverage this repo if configured per the
+[Local usage](#local). To configure this repo as dotfiles for VSCode _devcontainers_, follow these
+steps:
+
+1. Open Preferences: Open User Settings
+1. Search for "dotfiles"
+1. In the `Dotfiles: Repository` field, paste this repo's URL:
+   `https://github.com/rcwbr/dotfiles.git`
+1. (Optional) Set the `Dotfiles: Target Path` field to `~/.dotfiles` for consistency with
+   [Local usage](#local)
+1. Restart any running devcontainers for this change to take effect
+
+> :warning: Note that if a devcontainer mounts its user's home directory (as a bind or a volume),
+> VSCode will not be able to automatically clone the repo fresh on each restart, and
+> [the `dotfiles_update` tool must be used](#dotfiles-updater-usage).
+
+> :warning: The `DOTFILES_VERSION` variable is not applicable in this context.
+
+### Dotfiles updater usage<a name="dotfiles-updater-usage"></a>
+
+Most environments for dotfiles are short-lived and manual updating is not necessary. However,
+dotfile applications to local host systems, dotfiles may become out of date and require updating. To
+assist with this, the `install` script prepares a `dotfiles_update` executable to pull repo updates
+and apply.
+
+> :warning: The `dotfiles_update` tool is prepared in the `~/.local/bin` directory. If this is not
+> added to the `PATH` variable by system configuration or dotfiles, it will not be found as a
+> command. However, it may always be invoked as `~/.local/bin/dotfiles_update`
+
+```bash
+# Update dotfiles to the latest of the version ref initially applied:
+dotfiles_update
+```
+
+The `dotfiles_update` tool can be instructed to retrieve a specific version of the dotfiles repo,
+using the `DOTFILES_VERSION` variable. For example, to pin to a release tag:
+
+```bash
+export DOTFILES_VERSION=0.1.0
+dotfiles_update
+```
+
+### Modifying dotfiles<a name="modifying-dotfiles"></a>
+
+To modify dotfiles from any envrionment, start by simply making the changes as you would normally.
+Since files are symlinked from the home directory, your changes will be reflected in the local clone
+of this repo. Then, navigate to the repo (usually `~/.dotfiles`), create a branch, commit, and push.
+For example, to update `~/.aliases.sh`:
+
+```bash
+code ~/.aliases.sh # Edit aliases
+cd ~/.dotfiles
+git checkout -b update-aliases
+git add dotfiles
+git commit -m "feat: add alias for new function"
+git push
+```
 
 ## Contributing<a name="contributing"></a>
 
