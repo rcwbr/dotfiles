@@ -5,6 +5,8 @@
 <!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=1 -->
 
 - [rcwbr dotfiles](#rcwbr-dotfiles)
+  - [Usage](#usage)
+    - [Local](#local)
   - [Contributing](#contributing)
     - [devcontainer](#devcontainer)
       - [devcontainer basic usage](#devcontainer-basic-usage)
@@ -14,6 +16,39 @@
     - [Settings](#settings)
 
 <!-- mdformat-toc end -->
+
+## Usage<a name="usage"></a>
+
+While dotfiles are inherently for personalization, much of this repo is built to be reusable. The
+`dotfiles` subdirectory isolates the actual personalization/configuration files, while the lifecycle
+and installation tooling outside this repo is fully reusable (e.g. by forking or copying this repo).
+
+> :warning: The `local-install` script includes the reference to this repo as a hardcoded value;
+> this must be altered if forked/copied.
+
+### Local<a name="local"></a>
+
+Unlike other use-cases, application to local environments requires explicitly cloning this repo.
+This is facilitated by the `local-install` script, which may be triggered via curl:
+
+```bash
+curl https://raw.githubusercontent.com/rcwbr/dotfiles/refs/tags/0.1.0/local-install | bash
+```
+
+To apply a version of this repo other than the default branch, `local-install` may be invoked with
+the `DOTFILES_VERSION` variable set to a git reference. For example, to apply dotfiles from a
+release tag:
+
+```bash
+export DOTFILES_VERSION=0.1.0
+curl https://raw.githubusercontent.com/rcwbr/dotfiles/refs/tags/0.1.0/local-install | bash
+```
+
+To update the version of the dotfiles applied to a local environment,
+[use the dotfiles updater](#dotfiles-updater-usage).
+
+The `local-install` tool clones this repo to `~/.dotfiles`. To clone and configure from another
+location, simply `git clone` this repo and run the `./install` script manually from that location.
 
 ## Contributing<a name="contributing"></a>
 
