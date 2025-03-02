@@ -7,6 +7,7 @@
 - [rcwbr dotfiles](#rcwbr-dotfiles)
   - [Usage](#usage)
     - [Local](#local)
+    - [GitHub Codespaces](#github-codespaces)
   - [Contributing](#contributing)
     - [devcontainer](#devcontainer)
       - [devcontainer basic usage](#devcontainer-basic-usage)
@@ -49,6 +50,23 @@ To update the version of the dotfiles applied to a local environment,
 
 The `local-install` tool clones this repo to `~/.dotfiles`. To clone and configure from another
 location, simply `git clone` this repo and run the `./install` script manually from that location.
+
+### GitHub Codespaces<a name="github-codespaces"></a>
+
+Follow
+[these instructions](https://docs.github.com/en/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#enabling-your-dotfiles-repository-for-codespaces)
+to configure Codespaces to use this repo.
+
+> 1. In the upper-right corner of any page on GitHub, click your profile photo, then click Settings.
+> 1. In the "Code, planning, and automation" section of the sidebar, click Codespaces.
+> 1. Under "Dotfiles", select Automatically install dotfiles so that GitHub Codespaces automatically
+>    installs your dotfiles into every new codespace you create.
+> 1. Use the dropdown to choose the repository you want to install dotfiles from.
+
+Codespaces will start with a clone of the default branch of this repo, and
+[will execute the `install` script](https://docs.github.com/en/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)
+to load files into the environment. The `DOTFILES_VERSION` variable is not applicable in this
+context.
 
 ## Contributing<a name="contributing"></a>
 
