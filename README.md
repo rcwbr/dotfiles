@@ -10,6 +10,7 @@
     - [GitHub Codespaces](#github-codespaces)
     - [VSCode devcontainers](#vscode-devcontainers)
     - [Dotfiles updater usage](#dotfiles-updater-usage)
+    - [Modifying dotfiles](#modifying-dotfiles)
   - [Contributing](#contributing)
     - [devcontainer](#devcontainer)
       - [devcontainer basic usage](#devcontainer-basic-usage)
@@ -112,6 +113,22 @@ using the `DOTFILES_VERSION` variable. For example, to pin to a release tag:
 ```bash
 export DOTFILES_VERSION=0.1.0
 dotfiles_update
+```
+
+### Modifying dotfiles<a name="modifying-dotfiles"></a>
+
+To modify dotfiles from any envrionment, start by simply making the changes as you would normally.
+Since files are symlinked from the home directory, your changes will be reflected in the local clone
+of this repo. Then, navigate to the repo (usually `~/.dotfiles`), create a branch, commit, and push.
+For example, to update `~/.aliases.sh`:
+
+```bash
+code ~/.aliases.sh # Edit aliases
+cd ~/.dotfiles
+git checkout -b update-aliases
+git add dotfiles
+git commit -m "feat: add alias for new function"
+git push
 ```
 
 ## Contributing<a name="contributing"></a>
