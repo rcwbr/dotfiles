@@ -1,0 +1,222 @@
+[
+  {
+    "command": "workbench.action.closeActiveEditor",
+    "key": "alt+w"
+  },
+  {
+    "command": "-workbench.action.closeActiveEditor",
+    "key": "cmd+w"
+  },
+  {
+    "command": "workbench.action.reopenClosedEditor",
+    "key": "shift+alt+t"
+  },
+  {
+    "command": "-workbench.action.reopenClosedEditor",
+    "key": "shift+cmd+t"
+  },
+  {
+    "command": "workbench.action.nextEditor",
+    "key": "alt+tab"
+  },
+  {
+    "command": "-workbench.action.nextEditor",
+    "key": "shift+cmd+]"
+  },
+  {
+    "command": "workbench.action.previousEditor",
+    "key": "shift+alt+tab"
+  },
+  {
+    "command": "-workbench.action.previousEditor",
+    "key": "shift+cmd+["
+  },
+  {
+    "command": "workbench.action.focusNextGroup",
+    "key": "alt+cmd+tab"
+  },
+  {
+    "command": "-workbench.action.showAllEditors",
+    "key": "alt+cmd+tab"
+  },
+  {
+    "command": "workbench.action.moveEditorToNextGroup",
+    "key": "ctrl+alt+tab"
+  },
+  {
+    "command": "-workbench.action.moveEditorToNextGroup",
+    "key": "ctrl+cmd+right"
+  },
+  {
+    "command": "workbench.action.moveEditorToPreviousGroup",
+    "key": "ctrl+shift+alt+tab"
+  },
+  {
+    "command": "-workbench.action.moveEditorToPreviousGroup",
+    "key": "ctrl+cmd+left"
+  },
+  {
+    "command": "workbench.action.toggleMaximizedPanel",
+    "key": "ctrl+alt+`"
+  },
+  {
+    "command": "workbench.action.toggleMaximizeEditorGroup",
+    "key": "shift+alt+cmd+space",
+    "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups"
+  },
+  {
+    "command": "-workbench.action.toggleMaximizeEditorGroup",
+    "key": "cmd+k cmd+m",
+    "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups"
+  },
+  {
+    "command": "workbench.view.explorer",
+    "key": "ctrl+shift+e",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "command": "-workbench.view.explorer",
+    "key": "shift+cmd+e",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "command": "-cursorLineEndSelect",
+    "key": "ctrl+shift+e",
+    "when": "textInputFocus"
+  },
+  {
+    "command": "-cursorLineEnd",
+    "key": "ctrl+e",
+    "when": "textInputFocus"
+  },
+  {
+    "command": "workbench.action.focusActiveEditorGroup",
+    "key": "ctrl+shift+d"
+  },
+  {
+    "command": "workbench.view.extensions",
+    "key": "ctrl+shift+x",
+    "when": "viewContainer.workbench.view.extensions.enabled"
+  },
+  {
+    "command": "-workbench.view.extensions",
+    "key": "shift+cmd+x",
+    "when": "viewContainer.workbench.view.extensions.enabled"
+  },
+  {
+    "command": "-quickInput.pageNext",
+    "key": "alt+pagedown",
+    "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
+  {
+    "command": "-quickInput.pagePrevious",
+    "key": "alt+pageup",
+    "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
+  {
+    "command": "workbench.action.nextEditor",
+    "key": "alt+pagedown"
+  },
+  {
+    "command": "workbench.action.previousEditor",
+    "key": "alt+pageup"
+  },
+  {
+    "command": "-editor.action.smartSelect.expand",
+    "key": "ctrl+shift+right",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "-editor.action.smartSelect.shrink",
+    "key": "ctrl+shift+left",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "workbench.action.moveEditorLeftInGroup",
+    "key": "ctrl+alt+left"
+  },
+  {
+    "command": "-workbench.action.moveEditorLeftInGroup",
+    "key": "cmd+k shift+cmd+left"
+  },
+  {
+    "command": "-workbench.action.moveEditorRightInGroup",
+    "key": "cmd+k shift+cmd+right"
+  },
+  {
+    "command": "workbench.action.focusPreviousGroup",
+    "key": "shift+alt+cmd+tab"
+  },
+  {
+    "command": "workbench.action.moveEditorLeftInGroup",
+    "key": "shift+alt+pageup"
+  },
+  {
+    "command": "workbench.action.moveEditorRightInGroup",
+    "key": "shift+alt+pagedown"
+  },
+  {
+    "command": "-cursorWordPartLeft",
+    "key": "ctrl+alt+left",
+    "when": "textInputFocus"
+  },
+  {
+    "command": "-cursorWordPartRight",
+    "key": "ctrl+alt+right",
+    "when": "textInputFocus"
+  },
+  {
+    "command": "-quickInput.acceptInBackground",
+    "key": "ctrl+alt+right",
+    "when": "cursorAtEndOfQuickInputBox && inQuickInput && quickInputType == 'quickPick' || inQuickInput && !inputFocus && quickInputType == 'quickPick'"
+  },
+  {
+    "command": "workbench.action.moveEditorRightInGroup",
+    "key": "ctrl+alt+right"
+  },
+  {
+    "command": "workbench.action.terminal.scrollUp",
+    "key": "ctrl+shift+up",
+    "when": "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive"
+  },
+  {
+    "command": "-workbench.action.terminal.scrollUp",
+    "key": "alt+cmd+pageup",
+    "when": "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive"
+  },
+  {
+    "command": "workbench.action.terminal.scrollDown",
+    "key": "ctrl+shift+down",
+    "when": "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive"
+  },
+  {
+    "command": "-workbench.action.terminal.scrollDown",
+    "key": "alt+cmd+pagedown",
+    "when": "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive"
+  },
+  {
+    "command": "workbench.action.terminal.scrollDownPage",
+    "key": "ctrl+shift+alt+down",
+    "when": "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive"
+  },
+  {
+    "command": "-workbench.action.terminal.scrollDownPage",
+    "key": "pagedown",
+    "when": "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive"
+  },
+  {
+    "command": "workbench.action.terminal.scrollUpPage",
+    "key": "ctrl+shift+alt+up",
+    "when": "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive"
+  },
+  {
+    "command": "-workbench.action.terminal.scrollUpPage",
+    "key": "pageup",
+    "when": "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive"
+  },
+  {
+    "command": "workbench.action.terminal.kill",
+    "key": "alt+w",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  }
+]
