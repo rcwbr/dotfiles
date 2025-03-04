@@ -12,6 +12,8 @@
     - [Dotfiles updater usage](#dotfiles-updater-usage)
     - [Modifying dotfiles](#modifying-dotfiles)
   - [VSCode settings usage](#vscode-settings-usage)
+    - [VSCode settings sync configuration](#vscode-settings-sync-configuration)
+    - [Codespaces settings sync configuration](#codespaces-settings-sync-configuration)
   - [Contributing](#contributing)
     - [devcontainer](#devcontainer)
       - [devcontainer basic usage](#devcontainer-basic-usage)
@@ -140,6 +142,35 @@ cp ~/.gitconfig ~/.dotfiles/dotfiles
 ```
 
 ## VSCode settings usage<a name="vscode-settings-usage"></a>
+
+While settings for VSCode are tracked in this repo, they are not configured via dotfiles mechanism.
+Instead, [VSCode Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) is used to
+maintain consistent settings across environments.
+
+To apply the settings tracked in this repo to settings sync, first follow configuration
+[for VSCode](#vscode-settings-sync-configuration) or
+[for Codespaces](#codespaces-settings-sync-configuration). Then, manually copy the content from this
+repo into the relevant configuration:
+
+1. Open `Preferences: Open User Settings (JSON)` and paste in the contents of
+   `.vscode/user-settings.json`
+1. Open `Preferences: Open Keyboard Shortcuts (JSON)` and paste in the contents of
+   `.vscode/user-keybindings.json`
+
+Vice-versa, to update tracked settings or keybindings from the current synced state, open the JSON
+preferences and copy their content to the respective repo files.
+
+### VSCode settings sync configuration<a name="vscode-settings-sync-configuration"></a>
+
+To configure settings sync in a local environment, follow
+[the steps described in the guide](https://code.visualstudio.com/docs/editor/settings-sync), and log
+in using GitHub.
+
+### Codespaces settings sync configuration<a name="codespaces-settings-sync-configuration"></a>
+
+To configure settings sync in Codespaces, follow
+[the steps described in the guide](https://docs.github.com/en/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#settings-sync),
+and log in using GitHub.
 
 ## Contributing<a name="contributing"></a>
 
