@@ -11,6 +11,7 @@
     - [VSCode devcontainers](#vscode-devcontainers)
     - [Dotfiles updater usage](#dotfiles-updater-usage)
     - [Modifying dotfiles](#modifying-dotfiles)
+  - [VSCode settings usage](#vscode-settings-usage)
   - [Contributing](#contributing)
     - [devcontainer](#devcontainer)
       - [devcontainer basic usage](#devcontainer-basic-usage)
@@ -130,6 +131,15 @@ git add dotfiles
 git commit -m "feat: add alias for new function"
 git push
 ```
+
+To add a new dotfile, similarly create the file as usual, but before adding files for commit, copy
+the file to the dotfiles subdirectory. For example, to add a `~/.gitconfig` file:
+
+```bash
+cp ~/.gitconfig ~/.dotfiles/dotfiles
+```
+
+## VSCode settings usage<a name="vscode-settings-usage"></a>
 
 ## Contributing<a name="contributing"></a>
 
