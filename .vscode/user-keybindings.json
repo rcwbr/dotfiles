@@ -218,5 +218,13 @@
     "command": "workbench.action.terminal.kill",
     "key": "alt+w",
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "command": "notifications.showList",
+    "key": "cmd+k shift+alt+n"
+  },
+  {
+    "command": "-notifications.showList",
+    "key": "cmd+k shift+cmd+n"
   }
 ]
