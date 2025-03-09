@@ -7,7 +7,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # shellcheck disable=SC2034
-plugins=(autojump fzf git pre-commit pyenv ssh thefuck tmux)
+plugins=(autojump docker fzf git pre-commit pyenv ssh thefuck tmux)
 
 # shellcheck source=/dev/null
 . /usr/share/autojump/autojump.zsh
