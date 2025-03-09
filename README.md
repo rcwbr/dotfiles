@@ -7,6 +7,7 @@
 - [rcwbr dotfiles](#rcwbr-dotfiles)
   - [Usage](#usage)
     - [Local](#local)
+    - [Post-install script](#post-install-script)
     - [GitHub Codespaces](#github-codespaces)
     - [VSCode devcontainers](#vscode-devcontainers)
     - [Dotfiles updater usage](#dotfiles-updater-usage)
@@ -56,6 +57,11 @@ To update the version of the dotfiles applied to a local environment,
 
 The `local-install` tool clones this repo to `~/.dotfiles`. To clone and configure from another
 location, simply `git clone` this repo and run the `./install` script manually from that location.
+
+### Post-install script<a name="post-install-script"></a>
+
+To facilitate one-time environment setup steps, the `./install` script calls out to
+`~/.dotfiles-post-install`, if present.
 
 ### GitHub Codespaces<a name="github-codespaces"></a>
 
