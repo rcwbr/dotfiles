@@ -50,3 +50,8 @@ git pull
 popd || exit
 EOF
 chmod +x "$DOTFILES_UPDATER"
+
+# Call out to post-install script
+if [[ -f "$HOME/.dotfiles-post-install" ]]; then
+  "$HOME/.dotfiles-post-install"
+fi

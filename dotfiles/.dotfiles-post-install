@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Install VSCode extensions
+# shellcheck source=dotfiles/.shell_common.sh
+source "$HOME/.shell_common.sh"
+code_install_extensions
