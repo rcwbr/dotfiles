@@ -16,7 +16,7 @@ devcontainer_definition_files_arr=(
 )
 DEVCONTAINER_DEFINITION_FILES="${devcontainer_definition_files_arr[*]}"
 export DEVCONTAINER_DEFINITION_FILES
-export DEVCONTAINER_BUILD_ADDITIONAL_ARGS="remote_definition=https://github.com/rcwbr/dockerfile-partials.git#0.7.0"
+export DEVCONTAINER_BUILD_ADDITIONAL_ARGS="remote_definition=https://github.com/rcwbr/dockerfile-partials.git#0.9.0"
 # If an argument is passed to this script, pass it to the build call
 if [[ -z $# ]]; then
   export DEVCONTAINER_BUILD_ADDITIONAL_ARGS="$DEVCONTAINER_BUILD_ADDITIONAL_ARGS $*"

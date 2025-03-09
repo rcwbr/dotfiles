@@ -7,7 +7,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # shellcheck disable=SC2034
-plugins=(git pre-commit autojump)
+plugins=(autojump fzf git pre-commit pyenv ssh thefuck tmux)
 
 # shellcheck source=/dev/null
 . /usr/share/autojump/autojump.zsh
@@ -17,3 +17,6 @@ ZSH_THEME="re5et"
 
 # shellcheck source=/dev/null
 source "$ZSH/oh-my-zsh.sh"
+
+# shellcheck source=dotfiles/.shell_common.sh
+source "$HOME/.shell_common.sh"
