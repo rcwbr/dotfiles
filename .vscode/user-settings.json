@@ -1,4 +1,5 @@
 {
+  "editor.copyWithSyntaxHighlighting": false,
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
