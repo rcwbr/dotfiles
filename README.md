@@ -156,6 +156,7 @@ repo into the relevant configuration:
    `.vscode/user-settings.json`
 1. Open `Preferences: Open Keyboard Shortcuts (JSON)` and paste in the contents of
    `.vscode/user-keybindings.json`
+1. Open `Tasks: Open User Tasks` and paste in the contents of `.vscode/user-tasks.json`
 
 Vice-versa, to update tracked settings or keybindings from the current synced state, open the JSON
 preferences and copy their content to the respective repo files.
