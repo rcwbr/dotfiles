@@ -4,6 +4,12 @@
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
   "editor.tabSize": 2,
+  "terminal.integrated.automationProfile.linux": {
+    "path": "/bin/bash"
+  },
+  "terminal.integrated.automationProfile.osx": {
+    "path": "/bin/bash"
+  },
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.defaultProfile.osx": "bash",
   "terminal.integrated.profiles.linux": {
