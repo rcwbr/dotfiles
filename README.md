@@ -15,6 +15,7 @@
   - [VSCode settings usage](#vscode-settings-usage)
     - [VSCode settings sync configuration](#vscode-settings-sync-configuration)
     - [Codespaces settings sync configuration](#codespaces-settings-sync-configuration)
+    - [VSCode extensions usage](#vscode-extensions-usage)
   - [Contributing](#contributing)
     - [devcontainer](#devcontainer)
       - [devcontainer basic usage](#devcontainer-basic-usage)
@@ -178,6 +179,21 @@ in using GitHub.
 To configure settings sync in Codespaces, follow
 [the steps described in the guide](https://docs.github.com/en/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#settings-sync),
 and log in using GitHub.
+
+### VSCode extensions usage<a name="vscode-extensions-usage"></a>
+
+[VSCode settings sync](#vscode-settings-sync-configuration) will
+[sync extensions across environments](https://code.visualstudio.com/docs/editor/settings-sync).
+However, it will not sync extensions in devcontainers, including Codespaces that specify extensions
+in `.devcontainer/devcontainer.json`.
+
+To save user extensions (excluding any tracked in the `.devcontainer/devcontainer.json`), the
+function `code_save_extensions` is provided. It populates the `~/.vscode_extensions` file with any
+such installed extensions.
+
+To install the extensions from this file, the `code_install_extensions` function is provided.
+Additionally, this function is called by the [post-install script](#post-install-script) so that the
+extensions are always provisioned in new environments.
 
 ## Contributing<a name="contributing"></a>
 
