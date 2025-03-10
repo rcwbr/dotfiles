@@ -4,3 +4,8 @@
 # shellcheck source=dotfiles/.shell_common.sh
 source "$HOME/.shell_common.sh"
 code_install_extensions
+
+# Pre-pull common Docker images
+docker pull ghcr.io/vi/websocat:v1.14.0
+docker pull wagoodman/dive:latest
+docker pull ghcr.io/hadolint/hadolint:2.12.0
