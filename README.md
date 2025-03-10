@@ -7,6 +7,7 @@
 - [rcwbr dotfiles](#rcwbr-dotfiles)
   - [Usage](#usage)
     - [Local](#local)
+    - [Post-install script](#post-install-script)
     - [GitHub Codespaces](#github-codespaces)
     - [VSCode devcontainers](#vscode-devcontainers)
     - [Dotfiles updater usage](#dotfiles-updater-usage)
@@ -14,6 +15,7 @@
   - [VSCode settings usage](#vscode-settings-usage)
     - [VSCode settings sync configuration](#vscode-settings-sync-configuration)
     - [Codespaces settings sync configuration](#codespaces-settings-sync-configuration)
+    - [VSCode extensions usage](#vscode-extensions-usage)
   - [Contributing](#contributing)
     - [devcontainer](#devcontainer)
       - [devcontainer basic usage](#devcontainer-basic-usage)
@@ -56,6 +58,11 @@ To update the version of the dotfiles applied to a local environment,
 
 The `local-install` tool clones this repo to `~/.dotfiles`. To clone and configure from another
 location, simply `git clone` this repo and run the `./install` script manually from that location.
+
+### Post-install script<a name="post-install-script"></a>
+
+To facilitate one-time environment setup steps, the `./install` script calls out to
+`~/.dotfiles-post-install`, if present.
 
 ### GitHub Codespaces<a name="github-codespaces"></a>
 
@@ -156,6 +163,7 @@ repo into the relevant configuration:
    `.vscode/user-settings.json`
 1. Open `Preferences: Open Keyboard Shortcuts (JSON)` and paste in the contents of
    `.vscode/user-keybindings.json`
+1. Open `Tasks: Open User Tasks` and paste in the contents of `.vscode/user-tasks.json`
 
 Vice-versa, to update tracked settings or keybindings from the current synced state, open the JSON
 preferences and copy their content to the respective repo files.
@@ -171,6 +179,21 @@ in using GitHub.
 To configure settings sync in Codespaces, follow
 [the steps described in the guide](https://docs.github.com/en/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#settings-sync),
 and log in using GitHub.
+
+### VSCode extensions usage<a name="vscode-extensions-usage"></a>
+
+[VSCode settings sync](#vscode-settings-sync-configuration) will
+[sync extensions across environments](https://code.visualstudio.com/docs/editor/settings-sync).
+However, it will not sync extensions in devcontainers, including Codespaces that specify extensions
+in `.devcontainer/devcontainer.json`.
+
+To save user extensions (excluding any tracked in the `.devcontainer/devcontainer.json`), the
+function `code_save_extensions` is provided. It populates the `~/.vscode_extensions` file with any
+such installed extensions.
+
+To install the extensions from this file, the `code_install_extensions` function is provided.
+Additionally, this function is called by the [post-install script](#post-install-script) so that the
+extensions are always provisioned in new environments.
 
 ## Contributing<a name="contributing"></a>
 

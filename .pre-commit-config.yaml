@@ -45,6 +45,11 @@ repos:
   - id: trailing-whitespace
 - repo: local
   hooks:
+  - id: hclfmt
+    name: hclfmt
+    language: docker_image
+    entry: alpine/terragrunt:1.10.3 terragrunt hclfmt
+    types: ["hcl"]
   - id: commitlint-ci
     name: commitlint-ci
     stages: [manual]
@@ -58,3 +63,6 @@ repos:
   rev: v0.10.0.1
   hooks:
   - id: shellcheck
+    # Zsh is not supported in shellcheck
+    # Recommend removing shebang temporarily to lint, then restore
+    exclude: dotfiles/.zshrc

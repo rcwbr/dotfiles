@@ -218,5 +218,73 @@
     "command": "workbench.action.terminal.kill",
     "key": "alt+w",
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "command": "notifications.showList",
+    "key": "cmd+k shift+alt+n"
+  },
+  {
+    "command": "-notifications.showList",
+    "key": "cmd+k shift+cmd+n"
+  },
+  {
+    "command": "workbench.action.editor.nextChange",
+    "key": "ctrl+cmd+down",
+    "when": "editorTextFocus && !textCompareEditorActive && quickDiffDecorationCount != '0'"
+  },
+  {
+    "command": "-workbench.action.editor.nextChange",
+    "key": "alt+f5",
+    "when": "editorTextFocus && !textCompareEditorActive && quickDiffDecorationCount != '0'"
+  },
+  {
+    "command": "workbench.action.compareEditor.nextChange",
+    "key": "ctrl+cmd+down",
+    "when": "textCompareEditorVisible"
+  },
+  {
+    "command": "-workbench.action.compareEditor.nextChange",
+    "key": "alt+f5",
+    "when": "textCompareEditorVisible"
+  },
+  {
+    "command": "workbench.action.compareEditor.previousChange",
+    "key": "ctrl+cmd+up",
+    "when": "textCompareEditorVisible"
+  },
+  {
+    "command": "-workbench.action.compareEditor.previousChange",
+    "key": "shift+alt+f5",
+    "when": "textCompareEditorVisible"
+  },
+  {
+    "command": "workbench.action.editor.previousChange",
+    "key": "ctrl+cmd+up",
+    "when": "editorTextFocus && !textCompareEditorActive && quickDiffDecorationCount != '0'"
+  },
+  {
+    "command": "-workbench.action.editor.previousChange",
+    "key": "shift+alt+f5",
+    "when": "editorTextFocus && !textCompareEditorActive && quickDiffDecorationCount != '0'"
+  },
+  {
+    "args": {
+      "by": "line",
+      "to": "up",
+      "value": 20
+    },
+    "command": "cursorMove",
+    "key": "ctrl+cmd+up",
+    "when": "editorTextFocus && !textCompareEditorVisible"
+  },
+  {
+    "args": {
+      "by": "line",
+      "to": "down",
+      "value": 20
+    },
+    "command": "cursorMove",
+    "key": "ctrl+cmd+down",
+    "when": "editorTextFocus && !textCompareEditorVisible"
   }
 ]

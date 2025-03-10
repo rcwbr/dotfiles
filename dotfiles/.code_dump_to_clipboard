@@ -1,0 +1,5 @@
+#!/bin/bash
+
+code /tmp/clipboard
+echo "{ \"command\": \"editor.action.selectAll\" }" | docker run --rm -i --network=host ghcr.io/vi/websocat:v1.14.0 ws://127.0.0.1:3710
+echo "{ \"command\": \"editor.action.clipboardCopyAction\" }" | docker run --rm -i --network=host ghcr.io/vi/websocat:v1.14.0 ws://127.0.0.1:3710
