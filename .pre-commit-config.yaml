@@ -65,4 +65,4 @@ repos:
   - id: shellcheck
     # Zsh is not supported in shellcheck
     # Recommend removing shebang temporarily to lint, then restore
-    exclude: dotfiles/.zshrc
+    exclude: "dotfiles/.zshrc|dotfiles/.zprofile"
