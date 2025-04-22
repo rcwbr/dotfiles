@@ -9,8 +9,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # shellcheck disable=SC2034
 plugins=(autojump docker fzf git pre-commit pyenv ssh thefuck tmux)
 
-# shellcheck source=/dev/null
-. /usr/share/autojump/autojump.zsh
+if [[ "$AUTOJUMP_SOURCED" != "1" ]]; then
+  # shellcheck source=/dev/null
+  . /usr/share/autojump/autojump.zsh
+fi
 
 # shellcheck disable=SC2034
 ZSH_THEME="re5et"
