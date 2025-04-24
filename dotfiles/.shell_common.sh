@@ -2,6 +2,13 @@
 
 # Shell configuration agnostic of the shell tool
 
+# Perform host-specific setup, such as secrets that may not be checked into the repository
+HOST_SETUP_SCRIPT=$HOME/.host_setup.sh
+if [ -f "$HOST_SETUP_SCRIPT" ]; then
+  # shellcheck source=/dev/null
+  source "$HOST_SETUP_SCRIPT"
+fi
+
 export GHCR_USERNAME=rcwbr
 # shellcheck source=dotfiles/.aliases.sh
 source "$HOME/.aliases.sh"

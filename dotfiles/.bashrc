@@ -15,6 +15,9 @@ fi
 if [ -z ${TMUX+x} ]; then
   # If tmux is available, switch to it
   TMUX_EXECUTABLE_PATH=/bin/tmux
+  if which tmux; then
+    TMUX_EXECUTABLE_PATH=$(which tmux)
+  fi
   if [ -f "$TMUX_EXECUTABLE_PATH" ]; then
     export TARGET_SHELL
     exec "$TMUX_EXECUTABLE_PATH"
