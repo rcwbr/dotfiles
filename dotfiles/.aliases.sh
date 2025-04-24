@@ -3,6 +3,7 @@
 # Custom git aliases
 alias gl="git pull"
 alias gri="git rebase -i"
+alias gdo='git diff origin/$(git rev-parse --abbrev-ref HEAD)'
 alias glf='git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)'
 alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 
