@@ -13,6 +13,8 @@ export GHCR_USERNAME=rcwbr
 # shellcheck source=dotfiles/.aliases.sh
 source "$HOME/.aliases.sh"
 
+export PATH="${HOME}/.local/bin:${PATH}"
+
 code_dump_to_clipboard () {
   "$HOME/.code_dump_to_clipboard"
 }
