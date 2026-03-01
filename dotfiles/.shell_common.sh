@@ -2,6 +2,11 @@
 
 # Shell configuration agnostic of the shell tool
 
+export ANTHROPIC_AUTH_TOKEN="ollama"
+export ANTHROPIC_API_KEY=""
+export ANTHROPIC_BASE_URL="http://localhost:11434"
+export ANTHROPIC_MODEL="qwen3-coder-next:cloud"
+
 # Perform host-specific setup, such as secrets that may not be checked into the repository
 HOST_SETUP_SCRIPT=$HOME/.host_setup.sh
 if [ -f "$HOST_SETUP_SCRIPT" ]; then
