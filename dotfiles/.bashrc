@@ -24,11 +24,15 @@ case $- in
         TMUX_EXECUTABLE_PATH=$(which tmux)
       fi
       if [ -f "$TMUX_EXECUTABLE_PATH" ]; then
-        export TARGET_SHELL
-        # For regular SSH sessions (not during VSCode connection phase)
-        if ! { [ -n "$SSH_CONNECTION" ] && [ -z "$VSCODE_INJECTION" ]; } && [ "${TERM_PROGRAM}" == "vscode" ]; then
-          exec "$TMUX_EXECUTABLE_PATH"
-          exit
+        export TARGET_SHELL=$TMUX_EXECUTABLE_PATH
+        if [ -n "$SSH_CONNECTION" ] || [ -z "$VSCODE_INJECTION" ]; then
+          echo "Not SSH or VSCode, proceeding as local interactive shell."
+        else
+          # For regular SSH sessions (not during VSCode connection phase)
+          if [ "${TERM_PROGRAM}" == "vscode" ]; then
+            exec "$TMUX_EXECUTABLE_PATH"
+            exit
+          fi
         fi
       fi
 
