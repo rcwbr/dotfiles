@@ -168,6 +168,8 @@ repo into the relevant configuration:
 Vice-versa, to update tracked settings or keybindings from the current synced state, open the JSON
 preferences and copy their content to the respective repo files.
 
+Set `CODE_SETTINGS_DIR` to copy `dotfiles/.vscode` into the VSCode user config during `install`.
+
 ### VSCode settings sync configuration<a name="vscode-settings-sync-configuration"></a>
 
 To configure settings sync in a local environment, follow
