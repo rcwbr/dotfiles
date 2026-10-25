@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 TARGET_SHELL="sh"
 
 # Determine shell to target
@@ -30,7 +31,7 @@ case $- in
       fi
       if [ -f "$TMUX_EXECUTABLE_PATH" ]; then
         # If a VSCode terminal
-        if [ "${TERM_PROGRAM}" == "vscode" ]; then
+        if [ "${TERM_PROGRAM}" = "vscode" ]; then
           if [ -n "$SSH_CONNECTION" ] && [ -z "$VSCODE_INJECTION" ]; then
             # VSCode SSH connection, but not VSCode injection
             echo "Not SSH or VSCode, proceeding as local interactive shell."

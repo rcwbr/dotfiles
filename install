@@ -51,6 +51,15 @@ popd || exit
 EOF
 chmod +x "$DOTFILES_UPDATER"
 
+
+# Install VSCode settings into $CODE_SETTINGS_DIR if set. Enables VSCode
+# customization in environments without Settings Sync (e.g. devcontainers).
+if [[ -n "$CODE_SETTINGS_DIR" && -d "$dir/.vscode" ]]; then
+  echo -n "Installing VSCode settings to $CODE_SETTINGS_DIR ..."
+  mkdir -p "$CODE_SETTINGS_DIR"
+  cp -rL "$dir/.vscode/." "$CODE_SETTINGS_DIR/"
+  echo "done"
+fi
 # Call out to post-install script
 if [[ -f "$HOME/.dotfiles-post-install" ]]; then
   "$HOME/.dotfiles-post-install"

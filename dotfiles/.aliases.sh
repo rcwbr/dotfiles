@@ -6,6 +6,7 @@ alias gkl="git clean -fd"
 alias gkld="git clean -n -fd"
 alias gl="git pull"
 alias gri="git rebase -i"
+alias grin="git -c core.hooksPath=/dev/null rebase -i --ignore-date"
 alias gdo='git diff origin/$(git rev-parse --abbrev-ref HEAD)'
 alias glf='git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)'
 alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
